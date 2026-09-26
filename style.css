@@ -34,3 +34,22 @@
     height: auto;
   }
 }
+/* FIX COLLECTION TEXT GETTING CUT OFF */
+.collection-feature,
+.collection-hero,
+.collection,
+#collection {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+.collection-feature {
+  padding-bottom: 60px;
+}
+
+.collection-feature p,
+.collection-hero p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
