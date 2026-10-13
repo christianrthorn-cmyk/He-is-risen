@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Collection gallery additions */
+    /* Artwork collection */
     .collection-artworks {
       background: #080b0d;
       color: #f2eee6;
@@ -94,6 +94,34 @@
       padding-top: 75px;
     }
 
+    /* Submission teaser only */
+    .submission-teaser {
+      display: block;
+      width: 100%;
+      height: clamp(330px, 50vw, 650px);
+      overflow: hidden;
+      background: #080b0d;
+      cursor: zoom-in;
+    }
+
+    .artwork-gallery .submission-teaser img {
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      object-fit: cover;
+      object-position: center 42%;
+      transform: scale(1.3);
+      transition: transform .6s ease;
+    }
+
+    .submission-teaser:hover img {
+      transform: scale(1.38);
+    }
+
+    .artwork-full-hint {
+      color: #d5b06d;
+    }
+
     @media (max-width: 700px) {
       .collection-artworks {
         padding: 65px 5%;
@@ -111,97 +139,11 @@
       .artwork-group {
         margin-bottom: 70px;
       }
+
+      .submission-teaser {
+        height: 360px;
+      }
     }
- 
-/* Submission homepage teaser */
-.submission-hero {
-  position: relative;
-  height: min(85vh, 850px);
-  min-height: 480px;
-  overflow: hidden;
-  background: #080b0d;
-}
-
-.submission-hero .hero-image-link {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.submission-hero .hero-main-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  transform: scale(1.45);
-  transition: transform 1.2s ease;
-}
-
-.submission-hero:hover .hero-main-image {
-  transform: scale(1.55);
-}
-
-.submission-hero .hero-image-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.08) 25%,
-    rgba(0,0,0,0.72) 100%
-  );
-  pointer-events: none;
-}
-
-.submission-hero-caption {
-  position: absolute;
-  bottom: 9%;
-  left: 8%;
-  z-index: 2;
-  color: #f6efe3;
-}
-
-.submission-hero-caption > span {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: #d5b06d;
-}
-
-.submission-hero-caption h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(64px, 9vw, 145px);
-  font-weight: 400;
-  line-height: 1;
-  margin: 14px 0 24px;
-}
-
-.submission-hero-caption p {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-@media (max-width: 700px) {
-  .submission-hero {
-    height: 68vh;
-    min-height: 420px;
-  }
-
-  .submission-hero .hero-main-image {
-    transform: scale(1.3);
-  }
-
-  .submission-hero-caption {
-    left: 6%;
-    bottom: 8%;
-  }
-}
-
   </style>
 </head>
 
@@ -228,41 +170,22 @@
       <a href="#journey">The Journey</a>
       <a href="#tour">2030</a>
       <a href="#involved">Get Involved</a>
-
-<a class="nav-give" href="mailto:christianrthorn@gmail.com?subject=He%20is%20Risen%20project%20donation.">Give</a>
-
+      <a class="nav-give" href="mailto:christianrthorn@gmail.com?subject=He%20is%20Risen%20project%20donation.">Give</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- HERO -->
-
-
-<section class="hero hero-image">
-  <a href="#vision" class="hero-image-link" aria-label="Explore the He Is Risen vision">
-    <img
-      src="assets/studio-arrest.jpeg"
-      alt="He Is Risen — The Final Week of Jesus Christ"
-      class="hero-main-image"
-    />
-  </a>
-</section>
-
-  <a href="#artworks" class="hero-image-link" aria-label="Explore Submission by Michael Malm">
-    <img
-      src="assets/studio-arrest.jpeg"
-      alt="Submission — a painting by Michael Malm depicting the arrest of Jesus Christ"
-      class="hero-main-image"
-    />
-    <div class="submission-hero-caption">
-      <span>MICHAEL MALM · HE IS RISEN COLLECTION</span>
-      <h1>Submission</h1>
-      <p>Discover the painting <span aria-hidden="true">→</span></p>
-    </div>
-  </a>
-</section>
-
+    <!-- MAIN LANDING IMAGE -->
+    <section class="hero hero-image">
+      <a href="#vision" class="hero-image-link" aria-label="Explore the He Is Risen vision">
+        <img
+          src="assets/studio-arrest.jpeg"
+          alt="He Is Risen — The Final Week of Jesus Christ"
+          class="hero-main-image"
+        />
+      </a>
+    </section>
 
     <!-- VISION -->
     <section class="statement section-light" id="vision">
@@ -273,58 +196,82 @@
         </div>
 
         <div class="copy-column reveal">
-          <p class="lead">He Is Risen is creating a monumental visual account of the final week of the Savior’s mortal life through the work of internationally recognized artist Michael Malm.</p>
+          <p class="lead">
+            He Is Risen is creating a monumental visual account of the final week of the Savior’s mortal life through the work of internationally recognized artist Michael Malm.
+          </p>
 
-          <p>Some scenes will be reimagined from new perspectives. Others will depict moments rarely—or perhaps never—given this scale on canvas. The aim is simple: invite all people of every tradition, culture, and background to encounter Jesus Christ through beauty, story, and sacred art.</p>
+          <p>
+            Some scenes will be reimagined from new perspectives. Others will depict moments rarely—or perhaps never—given this scale on canvas. The aim is simple: invite all people of every tradition, culture, and background to encounter Jesus Christ through beauty, story, and sacred art.
+          </p>
 
           <div class="metrics">
-            <div><strong>3</strong><span>COMPLETED WORKS</span></div>
-            <div><strong>3–4</strong><span>PAINTINGS EACH YEAR</span></div>
-            <div><strong>2030</strong><span>WORLD EXHIBITION GOAL</span></div>
+            <div>
+              <strong>3</strong>
+              <span>COMPLETED WORKS</span>
+            </div>
+            <div>
+              <strong>3–4</strong>
+              <span>PAINTINGS EACH YEAR</span>
+            </div>
+            <div>
+              <strong>2030</strong>
+              <span>WORLD EXHIBITION GOAL</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COLLECTION INTRO -->
-    <section class="feature-photo" id="collection">
-     
-
-      <div class="feature-overlay"></div>
-
-      <div class="feature-caption reveal">
-        <p class="eyebrow">THE COLLECTION</p>
-        <h2>Painted at a scale<br>meant to be <em>experienced.</em></h2>
-        <p>Each painting is a chapter in one sacred story: love, sacrifice, suffering, triumph, and Resurrection.</p>
-        <a href="#artworks" class="text-link">EXPLORE THE COLLECTION <span>→</span></a>
-      </div>
-    </section>
-
-    <!-- ARTWORK GALLERY -->
-    <section class="collection-artworks section-dark" id="artworks">
+    <!-- ARTWORK COLLECTION -->
+    <section class="collection-artworks section-dark" id="collection">
       <div class="artworks-heading reveal">
         <p class="eyebrow">THE ARTWORK</p>
         <h2>A sacred story unfolding on canvas.</h2>
-        <p>Explore monumental compositions and intimate studies from Michael Malm's artistic journey.</p>
+        <p>
+          Explore monumental compositions and intimate studies from Michael Malm's artistic journey.
+        </p>
       </div>
 
-      <!-- THE ARREST -->
+      <!-- SUBMISSION -->
       <div class="artwork-group">
-        <h3>TSubmission</h3>
+        <h3>Submission</h3>
 
         <div class="artwork-gallery">
           <figure class="artwork-feature reveal">
-            <img src="submission.jpg" alt="The Arrest of Christ" loading="lazy">
-            <figcaption>Submission</figcaption>
+            <a
+              class="submission-teaser"
+              href="submission.jpg"
+              target="_blank"
+              rel="noopener"
+              aria-label="View the complete Submission painting"
+            >
+              <img
+                src="submission.jpg"
+                alt="Submission by Michael Malm — detail teaser"
+                loading="lazy"
+              />
+            </a>
+            <figcaption>
+              Submission
+              <span class="artwork-full-hint">— Click to view the full painting ↗</span>
+            </figcaption>
           </figure>
 
           <figure class="reveal">
-            <img src="submission-study.jpg" alt="Study for the Arrest of Christ" loading="lazy">
-            <figcaption>The Arrest of Christ — Study</figcaption>
+            <img
+              src="submission-study.jpg"
+              alt="Submission painting study"
+              loading="lazy"
+            />
+            <figcaption>Submission — Study</figcaption>
           </figure>
 
           <figure class="reveal">
-            <img src="i-am-he.jpg" alt="I Am He painting study" loading="lazy">
+            <img
+              src="i-am-he.jpg"
+              alt="I Am He painting study"
+              loading="lazy"
+            />
             <figcaption>I Am He — Study</figcaption>
           </figure>
         </div>
@@ -336,12 +283,20 @@
 
         <div class="artwork-gallery">
           <figure class="reveal">
-            <img src="cross-to-bear-detailed-study.jpg" alt="Christ carrying the cross" loading="lazy">
+            <img
+              src="cross-to-bear-detailed-study.jpg"
+              alt="Christ carrying the cross"
+              loading="lazy"
+            />
             <figcaption>Christ Carrying the Cross — Study</figcaption>
           </figure>
 
           <figure class="reveal">
-            <img src="his-cross-to-bear-detailed-study.jpg" alt="His Cross to Bear detailed study" loading="lazy">
+            <img
+              src="his-cross-to-bear-detailed-study.jpg"
+              alt="His Cross to Bear detailed study"
+              loading="lazy"
+            />
             <figcaption>His Cross to Bear — Detailed Study</figcaption>
           </figure>
         </div>
@@ -353,22 +308,38 @@
 
         <div class="artwork-gallery">
           <figure class="artwork-feature reveal">
-            <img src="crucifixion.jpg" alt="The Crucifixion" loading="lazy">
+            <img
+              src="crucifixion.jpg"
+              alt="The Crucifixion"
+              loading="lazy"
+            />
             <figcaption>The Crucifixion</figcaption>
           </figure>
 
           <figure class="reveal">
-            <img src="crucifixion-study.jpg" alt="Crucifixion composition study" loading="lazy">
+            <img
+              src="crucifixion-study.jpg"
+              alt="Crucifixion composition study"
+              loading="lazy"
+            />
             <figcaption>The Crucifixion — Study</figcaption>
           </figure>
 
           <figure class="reveal">
-            <img src="detailed-crucifixion-study.jpg" alt="Detailed Crucifixion study" loading="lazy">
+            <img
+              src="detailed-crucifixion-study.jpg"
+              alt="Detailed Crucifixion study"
+              loading="lazy"
+            />
             <figcaption>Detailed Crucifixion Study</figcaption>
           </figure>
 
           <figure class="reveal">
-            <img src="zoomed-in-crucifixion.jpg" alt="Close view of the Crucifixion" loading="lazy">
+            <img
+              src="zoomed-in-crucifixion.jpg"
+              alt="Close view of the Crucifixion"
+              loading="lazy"
+            />
             <figcaption>The Crucifixion — Detail</figcaption>
           </figure>
         </div>
@@ -380,7 +351,11 @@
 
         <div class="artwork-gallery">
           <figure class="artwork-feature reveal">
-            <img src="resurrection-study.jpg" alt="The Resurrection study" loading="lazy">
+            <img
+              src="resurrection-study.jpg"
+              alt="The Resurrection study"
+              loading="lazy"
+            />
             <figcaption>The Resurrection — Study</figcaption>
           </figure>
         </div>
@@ -390,20 +365,31 @@
     <!-- ARTIST -->
     <section class="artist section-light" id="artist">
       <div class="artist-photo reveal">
-        <img src="assets/studio-process.jpeg" alt="Michael Malm discussing artwork in his studio">
+        <img
+          src="assets/studio-process.jpeg"
+          alt="Michael Malm discussing artwork in his studio"
+        />
       </div>
 
       <div class="artist-copy reveal">
         <p class="eyebrow dark">THE ARTIST</p>
         <h2>Michael Malm</h2>
 
-        <p class="lead">An acclaimed American painter bringing a lifetime of artistic mastery to the final week of Jesus Christ’s life.</p>
+        <p class="lead">
+          An acclaimed American painter bringing a lifetime of artistic mastery to the final week of Jesus Christ’s life.
+        </p>
 
-        <p>Michael Malm earned his MFA from Utah State University and has spent decades studying the human figure, light, emotion, and sacred subjects. His paintings seek to move the viewer—to uplift and inspire.</p>
+        <p>
+          Michael Malm earned his MFA from Utah State University and has spent decades studying the human figure, light, emotion, and sacred subjects. His paintings seek to move the viewer—to uplift and inspire.
+        </p>
 
-        <p><em>He Is Risen</em> is among the most ambitious undertakings of his career: a years-long collection of monumental paintings portraying the final week, death, and Resurrection of Jesus Christ—created to be experienced by audiences around the world.</p>
+        <p>
+          <em>He Is Risen</em> is among the most ambitious undertakings of his career: a years-long collection of monumental paintings portraying the final week, death, and Resurrection of Jesus Christ—created to be experienced by audiences around the world.
+        </p>
 
-        <p><strong>The vision is to create sacred art that will endure for generations.</strong></p>
+        <p>
+          <strong>The vision is to create sacred art that will endure for generations.</strong>
+        </p>
 
         <a class="text-link" href="#journey">INSIDE THE STUDIO →</a>
       </div>
@@ -414,7 +400,10 @@
       <div class="journey-intro reveal">
         <p class="eyebrow">THE JOURNEY</p>
         <h2>Witness the creation<br>before the world sees it.</h2>
-        <p>From early sketches and theological research to models, composition studies, full-scale canvases, framing, conservation, and exhibition design, the journey toward 2030 is part of the story.</p>
+
+        <p>
+          From early sketches and theological research to models, composition studies, full-scale canvases, framing, conservation, and exhibition design, the journey toward 2030 is part of the story.
+        </p>
       </div>
 
       <div class="timeline">
@@ -438,7 +427,7 @@
       </div>
     </section>
 
-    <!-- 2030 EXHIBITION -->
+    <!-- 2030 WORLD EXHIBITION -->
     <section class="tour" id="tour">
       <div class="tour-bg" aria-hidden="true"></div>
 
@@ -446,7 +435,9 @@
         <p class="eyebrow">THE 2030 WORLD EXHIBITION</p>
         <h2>A global exhibition.<br><em>A lasting impact.</em></h2>
 
-        <p>Our goal is to bring this collection to exceptional museums, galleries, cultural institutions, and sacred spaces around the world—creating encounters with Christ that cross borders, traditions, and generations.</p>
+        <p>
+          Our goal is to bring this collection to exceptional museums, galleries, cultural institutions, and sacred spaces around the world—creating encounters with Christ that cross borders, traditions, and generations.
+        </p>
 
         <div class="tour-cities">
           <span>ROME</span>
@@ -471,7 +462,9 @@
           <span>01</span>
           <div>
             <h3>Advisory Board</h3>
-            <p>Help broaden the reach, credibility, relationships, and cultural impact of the project.</p>
+            <p>
+              Help broaden the reach, credibility, relationships, and cultural impact of the project.
+            </p>
           </div>
           <b>→</b>
         </a>
@@ -480,7 +473,9 @@
           <span>02</span>
           <div>
             <h3>Venue & Institutional Partners</h3>
-            <p>Open doors to museums, galleries, churches, universities, and cultural institutions.</p>
+            <p>
+              Open doors to museums, galleries, churches, universities, and cultural institutions.
+            </p>
           </div>
           <b>→</b>
         </a>
@@ -489,7 +484,9 @@
           <span>03</span>
           <div>
             <h3>Founding Donors</h3>
-            <p>Help fund the creation, preservation, transportation, and exhibition of the collection.</p>
+            <p>
+              Help fund the creation, preservation, transportation, and exhibition of the collection.
+            </p>
           </div>
           <b>→</b>
         </a>
@@ -503,11 +500,16 @@
 
         <h2>Be part of the story<br>before it reaches the world.</h2>
 
-        <p>Philanthropic support will make possible the creation of the paintings, scholarly and curatorial work, conservation, exhibition design, transportation, insurance, venue partnerships, and the 2030 international tour.</p>
+        <p>
+          Philanthropic support will make possible the creation of the paintings, scholarly and curatorial work, conservation, exhibition design, transportation, insurance, venue partnerships, and the 2030 international tour.
+        </p>
 
-      
-<a class="button button-gold" href="mailto:christianrthorn@gmail.com?subject=He%20is%20Risen%20project%20donation.">Begin a Giving Conversation <span>→</span></a>
-
+        <a
+          class="button button-gold"
+          href="mailto:christianrthorn@gmail.com?subject=He%20is%20Risen%20project%20donation."
+        >
+          Begin a Giving Conversation <span>→</span>
+        </a>
       </div>
     </section>
 
@@ -519,9 +521,13 @@
       <span class="brand-script">He Is Risen</span>
     </a>
 
-    <p>A monumental sacred art initiative centered on the final week, death, and Resurrection of Jesus Christ.</p>
+    <p>
+      A monumental sacred art initiative centered on the final week, death, and Resurrection of Jesus Christ.
+    </p>
 
-    <p class="footer-meta">© 2026 He Is Risen. All rights reserved. &nbsp; · &nbsp; Artwork © Michael Malm / He Is Risen.</p>
+    <p class="footer-meta">
+      © 2026 He Is Risen. All rights reserved. &nbsp; · &nbsp; Artwork © Michael Malm / He Is Risen.
+    </p>
   </footer>
 
   <script src="script.js"></script>
