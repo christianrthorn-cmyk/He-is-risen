@@ -391,15 +391,14 @@ h1, h2, h3 {
   background: var(--ink);
   cursor: zoom-in;
 }
-
 .artwork-gallery .submission-teaser img {
   display: block;
   width: 100%;
   height: 100%;
   max-height: none;
   object-fit: cover;
-  object-position: center 42%;
-  transform: scale(1.3);
+  object-position: 50% 42%;
+  transform: scale(1.8);
   transition: transform .6s ease;
 }
 
